@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="448d9168-ac62-48ef-801d-d8eeea68e020" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go Application" />
+        <option value="Go File" />
+      </list>
+    </option>
+  </component>
+  <component name="GOROOT" path="/usr/local/go" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/api" />
+  </component>
+  <component name="ProjectId" id="1Y6qysh2fGAKFP0ydpOZiwnsZuv" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultGoTemplateProperty" value="Go File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/api" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/api" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Makefile.run">
+    <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="article_maker" />
+      <working_directory value="$PROJECT_DIR$/" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/api/main.go" />
+      <directory value="$PROJECT_DIR$/" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestCreateArticle in main_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="article_maker" />
+      <working_directory value="$PROJECT_DIR$/api" />
+      <framework value="gotest" />
+      <kind value="FILE" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/api/main_test.go" />
+      <pattern value="^TestCreateArticle$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="build" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/api/Makefile" target="build" workingDirectory="" arguments="">
+        <envs />
+      </makefile>
+      <method v="2" />
+    </configuration>
+    <configuration name="hello" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/api/Makefile" target="hello" workingDirectory="" arguments="">
+        <envs />
+      </makefile>
+      <method v="2" />
+    </configuration>
+    <configuration name="run" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/api/Makefile" target="run" workingDirectory="" arguments="">
+        <envs />
+      </makefile>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Makefile.run" />
+        <item itemvalue="Makefile.build" />
+        <item itemvalue="Makefile.hello" />
+        <item itemvalue="Go Test.TestCreateArticle in main_test.go" />
+        <item itemvalue="Go Build.go build main.go" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="467" y="249" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1582462274050">
+      <screen x="0" y="23" width="1440" height="832" />
+    </state>
+    <state x="467" y="249" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1440.832@0.23.1440.832" timestamp="1582462274050" />
+    <state width="1398" height="215" key="GridCell.Tab.0.bottom" timestamp="1582522136633">
+      <screen x="0" y="23" width="1440" height="832" />
+    </state>
+    <state width="1398" height="215" key="GridCell.Tab.0.bottom/0.23.1440.832@0.23.1440.832" timestamp="1582522136633" />
+    <state width="1398" height="215" key="GridCell.Tab.0.center" timestamp="1582522136632">
+      <screen x="0" y="23" width="1440" height="832" />
+    </state>
+    <state width="1398" height="215" key="GridCell.Tab.0.center/0.23.1440.832@0.23.1440.832" timestamp="1582522136632" />
+    <state width="1398" height="215" key="GridCell.Tab.0.left" timestamp="1582522136632">
+      <screen x="0" y="23" width="1440" height="832" />
+    </state>
+    <state width="1398" height="215" key="GridCell.Tab.0.left/0.23.1440.832@0.23.1440.832" timestamp="1582522136632" />
+    <state width="1398" height="215" key="GridCell.Tab.0.right" timestamp="1582522136633">
+      <screen x="0" y="23" width="1440" height="832" />
+    </state>
+    <state width="1398" height="215" key="GridCell.Tab.0.right/0.23.1440.832@0.23.1440.832" timestamp="1582522136633" />
+  </component>
+</project>
