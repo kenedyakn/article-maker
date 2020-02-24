@@ -274,7 +274,7 @@ func TestDeleteArticle(t *testing.T) {
 }
 
 func createTestDatabase() {
-	if _, err := a.DB.Exec(tableCreationQuery); err != nil {
+	if _, err := a.DB.Exec(databaseCreationQuery); err != nil {
 		log.Fatal(err)
 	}
 }
@@ -287,7 +287,7 @@ func dropTestDb() {
 	a.DB.Exec("DROP DATABASE article_maker_test_db")
 }
 
-const tableCreationQuery = `
+const databaseCreationQuery = `
 CREATE DATABASE IF NOT EXISTS article_maker_test_db;
 `
 

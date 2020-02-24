@@ -35,14 +35,9 @@ type CreateArticle struct {
 }
 
 func (a *CreateArticle) createArticle(db *sql.DB) error {
-	statement := fmt.Sprintf("INSERT INTO articles(category_id, publisher_id,title,body,published_at) VALUES(%d, %d,'%s','%s','%s')", a.CategoryId, a.PublisherId, a.Title, a.Body, a.PublishedAt)
-	_, err := db.Exec(statement)
 
-	if err != nil {
-		return err
-	}
-
-	err = db.QueryRow("SELECT LAST_INSERT_ID()").Scan(&a.ID)
+	_, err := db.Exec("INSERT INTO articles(category_id, publisher_id,title,body,published_at) VALUES(?,?,?,?,?)",
+		a.CategoryId, a.PublisherId, a.Title, a.Body, a.PublishedAt)
 
 	if err != nil {
 		return err
@@ -116,9 +111,13 @@ func getAllArticles(db *sql.DB, category string, publisher string, publishedAt s
 		statement += result
 	}
 
-	rows, err := db.Query(statement)
+	rows, err := db.Query(`SELECT a.id, a.title, a.body,c.name, p.name, a.published_at, a.created_at
+	FROM articles AS a
+	LEFT JOIN categories AS c ON a.category_id = c.id
+	LEFT JOIN publishers AS p ON a.publisher_id = p.id`)
 
 	if err != nil {
+		fmt.Println(err)
 		return nil, err
 	}
 

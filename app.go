@@ -15,15 +15,13 @@ type App struct {
 	DB     *sql.DB
 }
 
-func (a *App) Initialize(user, password, dbname string) {
+func (a *App) Initialize(user string, password string, dbname string) {
 	connectionString := fmt.Sprintf("%s:%s@/%s", user, password, dbname)
-
-	var err error
-	a.DB, err = sql.Open("mysql", connectionString)
+	db, err := sql.Open("mysql", connectionString)
 	if err != nil {
-		log.Fatal(err)
+		panic(err)
 	}
-
+	a.DB = db
 	a.Router = mux.NewRouter()
 	a.initializeRoutes()
 }
@@ -47,9 +45,11 @@ func (a *App) handleGetArticles(w http.ResponseWriter, r *http.Request) {
 	publisher := r.URL.Query().Get("publisher")
 	publishedAt := r.URL.Query().Get("published_at")
 	createdAt := r.URL.Query().Get("created_at")
+
 	articles, err := getAllArticles(a.DB, category, publisher, publishedAt, createdAt)
 	if err != nil {
 		respondWithError(w, http.StatusInternalServerError, err.Error())
+		fmt.Println(err)
 		return
 	}
 
@@ -188,40 +188,6 @@ func respondWithJSON(w http.ResponseWriter, code int, payload interface{}) {
 	w.Write(response)
 }
 
-func (a *App) handleCreateCategory(w http.ResponseWriter, r *http.Request) {
-	var category Category
-	decoder := json.NewDecoder(r.Body)
-	if err := decoder.Decode(&category); err != nil {
-		respondWithError(w, http.StatusBadRequest, "Invalid request payload")
-		return
-	}
-	defer r.Body.Close()
-
-	if err := category.createCategory(a.DB); err != nil {
-		respondWithError(w, http.StatusInternalServerError, err.Error())
-		return
-	}
-
-	respondWithJSON(w, http.StatusCreated, category)
-}
-
-func (a *App) handleCreatePublisher(w http.ResponseWriter, r *http.Request) {
-	var publisher Publisher
-	decoder := json.NewDecoder(r.Body)
-	if err := decoder.Decode(&publisher); err != nil {
-		respondWithError(w, http.StatusBadRequest, "Invalid request payload")
-		return
-	}
-	defer r.Body.Close()
-
-	if err := publisher.createPublisher(a.DB); err != nil {
-		respondWithError(w, http.StatusInternalServerError, err.Error())
-		return
-	}
-
-	respondWithJSON(w, http.StatusCreated, publisher)
-}
-
 func (a *App) initializeRoutes() {
 	// Articles
 	a.Router.HandleFunc("/article", a.handleGetArticles).Methods("GET")
@@ -229,28 +195,4 @@ func (a *App) initializeRoutes() {
 	a.Router.HandleFunc("/article", a.handleCreateArticle).Methods("POST")
 	a.Router.HandleFunc("/article", a.handleUpdateArticle).Methods("PUT")
 	a.Router.HandleFunc("/article/{id:[0-9]+}", a.handleDeleteArticle).Methods("DELETE")
-
-	// Categories
-	a.Router.HandleFunc("/category", a.handleCreateCategory).Methods("POST")
-
-	// Publishers
-	a.Router.HandleFunc("/publisher", a.handleCreatePublisher).Methods("POST")
-	// Publishers
-	a.Router.HandleFunc("/publisher", a.pubName).Methods("GET")
-}
-
-func (a *App) pubName(w http.ResponseWriter, r *http.Request) {
-	var publisher Publisher
-	name := r.URL.Query().Get("name")
-
-	publisher.Name = name
-
-	if err := publisher.getPublisherWithName(a.DB); err != nil {
-		if err := publisher.createPublisher(a.DB); err != nil {
-			respondWithError(w, http.StatusInternalServerError, err.Error())
-			return
-		}
-	}
-
-	respondWithJSON(w, http.StatusCreated, publisher)
 }
