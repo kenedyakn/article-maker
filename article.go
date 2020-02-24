@@ -85,6 +85,7 @@ func getAllArticles(db *sql.DB, category string, publisher string, publishedAt s
     LEFT JOIN categories c ON a.category_id = c.id 
 	LEFT JOIN publishers p ON a.publisher_id = p.id `)
 
+	// Add query conditions if any of the query parameters is received
 	if category != "" || publisher != "" || publishedAt != "" || createdAt != "" {
 
 		statement += "WHERE "
@@ -111,10 +112,7 @@ func getAllArticles(db *sql.DB, category string, publisher string, publishedAt s
 		statement += result
 	}
 
-	rows, err := db.Query(`SELECT a.id, a.title, a.body,c.name, p.name, a.published_at, a.created_at
-	FROM articles AS a
-	LEFT JOIN categories AS c ON a.category_id = c.id
-	LEFT JOIN publishers AS p ON a.publisher_id = p.id`)
+	rows, err := db.Query(statement)
 
 	if err != nil {
 		fmt.Println(err)

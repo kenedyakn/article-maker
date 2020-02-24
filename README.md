@@ -1,48 +1,49 @@
 # Article Maker
 
-Olsela is an app that enables farmers and producers to sale their items in whole sale
+Article maker is a REST API server written in go.
 
 ## Getting Started
 
-Clone the project from github, open it up using android studio then sync the gradle packages.
+## Install
+Clone project from github
 
+
+
+## Run
+Build
 ```bash
-git clone git@github.com:kenedyivan/olsela-android-app.git for ssh
-or
-git https://github.com/kenedyivan/olsela-android-app.git for http
+make build
+```
+Run
+```bash
+make run
+```
+## Testing
+```bash
+make test
 ```
 
+## DB
+The sql script with the DB schema can be found in the sql directory
 
-### Prerequisites
+## Endpoints
 
-* Java
-* Android studio
-* Android emulator
+| Method        | Path           | Comment  |
+| ------------- |:-------------| :-----|
+| GET     | /article | Gets all articles
+| GET     | /article/1      |   Gets single article with id of 1 |
+| POST | /article      |    Creates a new article |
+| PUT | /article      |    Updates article |
+| DELETE | /article/1      |    Deletes article with id of 1 |
 
-End with an example of getting some data out of the system or using it for a little demo
 
-## Deployment
-
-Install in any Android device or emulator with support for Google apps
-
-## Built With
-
-* [Ritrofit](https://square.github.io/retrofit/) - Http client
-* [Java](https://www.java.com/) - Programming language
-
-## Versioning
-
-We use [Git](https://git-scm.com/) and [Github](https://github.com/) for versioning. 
-
-## Authors
-
-* **EGS**
-
+### Filtered results
+| Method        | Path           | Comment  |
+| ------------- |:-------------| :-----|
+| GET     | /article?category=science | Gets all articles in the category of science
+| GET     | /article?publisher=John Doe | Gets all articles by John Doe
+| GET     | /article?published_at=2020-02-23 10:10 | Gets all articles according to published on 2020-02-23 10:10
+| GET     | /article?created_at=2020-02-23 10:10 | Gets all articles that where create on 2020-02-23 10:10
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
-
-## Acknowledgments
-
-* Kevin Otim    
-* Emma Masaba

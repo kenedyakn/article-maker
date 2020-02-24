@@ -15,7 +15,7 @@ var a App
 func TestMain(m *testing.M) {
 
 	a = App{}
-	a.Initialize("root", "123!@#QWEasd", "article_maker_db")
+	a.Initialize(DB_USER, DB_PASSWORD, DB_NAME)
 	createTestDatabase()
 	initializeTestDb()
 	code := m.Run()
@@ -292,9 +292,7 @@ CREATE DATABASE IF NOT EXISTS article_maker_test_db;
 `
 
 func initializeTestDb() {
-
-	a.Initialize("root", "123!@#QWEasd", "article_maker_test_db")
-
+	a.Initialize(DB_USER, DB_PASSWORD, "article_maker_test_db")
 	tables := []string{
 		tableArticles,
 		tableCategories,
