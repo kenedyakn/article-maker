@@ -8,6 +8,6 @@ import (
 func main() {
 	a := App{}
 	// You need to set your Username and Password here
-	a.Initialize(DB_USER, DB_PASSWORD, DB_NAME)
+	a.Initialize(DATABASE_USER, DATABASE_PASSWORD, DATABASE_NAME)
 	a.Run(":9000")
 }

@@ -23,9 +23,9 @@ The sql script with the DB schema can be found in the sql directory.
 Replace the const values in config.go with the respective database details
 ```go
 const (
-	DB_USER     = ""
-	DB_PASSWORD = ""
-	DB_NAME     = ""
+	DATABASE_USER     = ""
+	DATABASE_PASSWORD = ""
+	DATABASE_NAME     = ""
 )
 
 ```
