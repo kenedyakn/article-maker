@@ -15,7 +15,7 @@ This api is used for managing article data with support for operations such as.
 ## Install
 Clone project from github
 
-## DB
+## Database
 The server uses a Mysql database for persisting data during operation.
 The sql script with the DB schema can be found in the sql directory.
 
