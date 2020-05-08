@@ -1,6 +1,6 @@
 # Article Maker
 
-Article maker is a REST API server written in go.
+Article maker is a REST API service written in go.
 
 This api is used for managing articles with support for operations such as.
 
