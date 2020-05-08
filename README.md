@@ -2,7 +2,7 @@
 
 Article maker is a REST API server written in go.
 
-This api is used for managing article data with support for operations such as.
+This api is used for managing articles with support for operations such as.
 
 * Creating articles
 * Updating articles
